@@ -1,0 +1,130 @@
+package menu;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.ListSelectionModel;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
+import javax.swing.border.CompoundBorder;
+import java.awt.ComponentOrientation;
+import java.awt.Cursor;
+import javax.swing.DropMode;
+import java.awt.Dimension;
+import java.awt.Color;
+
+public class Menu {
+
+	private JFrame frame;
+	private JTable table;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Menu window = new Menu();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Menu() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 577, 354);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JMenuBar menuBar = new JMenuBar();
+		frame.setJMenuBar(menuBar);
+		
+		JMenu Calcular = new JMenu("Calcular");
+		menuBar.add(Calcular);
+		
+		JMenu SUMAR = new JMenu("SUMAR");
+		Calcular.add(SUMAR);
+		
+		JMenuItem DosNumero_S = new JMenuItem("Dos numeros");
+		DosNumero_S.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DosNumero_S window = new DosNumero_S();
+				window.frame.setVisible(true);
+			}
+		});
+		SUMAR.add(DosNumero_S);
+		
+		JMenuItem TresNumeros_S = new JMenuItem("Tres numeros");
+		SUMAR.add(TresNumeros_S);
+		
+		JMenu MULTIPLICAR = new JMenu("MULTIPLICAR");
+		Calcular.add(MULTIPLICAR);
+		
+		JMenuItem DosNumero_M = new JMenuItem("Dos numeros");
+		MULTIPLICAR.add(DosNumero_M);
+		
+		JMenuItem TresNumeros_M = new JMenuItem("Tres numeros");
+		MULTIPLICAR.add(TresNumeros_M);
+		
+		JMenu RESTAR = new JMenu("RESTAR");
+		Calcular.add(RESTAR);
+		
+		JMenuItem DosNumero_R = new JMenuItem("Dos numeros");
+		RESTAR.add(DosNumero_R);
+		
+		JMenuItem TresNumeros_R = new JMenuItem("Tres numeros");
+		RESTAR.add(TresNumeros_R);
+		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+			},
+			new String[] {
+				"Referencia", "Resultado"
+			}
+		));
+		frame.getContentPane().add(table, BorderLayout.CENTER);
+	}
+}

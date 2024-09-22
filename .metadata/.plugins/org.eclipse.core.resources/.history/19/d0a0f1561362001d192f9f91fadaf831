@@ -1,0 +1,114 @@
+package menu;
+
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+
+public class TresNumeros_R {
+
+	private JFrame frame7;
+	private JTextField resultado7;
+	private JLabel Texto_7;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TresNumeros_R window = new TresNumeros_R();
+					window.frame7.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public TresNumeros_R() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame7 = new JFrame();
+		frame7.setBounds(100, 100, 450, 300);
+		frame7.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame7.getContentPane().setLayout(null);
+		
+		Texto_7 = new JLabel("Multiplicacion:Tres numeros");
+		Texto_7.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Texto_7.setBounds(77, 11, 249, 49);
+		frame7.getContentPane().add(Texto_7);
+		
+		JSpinner num1_7 = new JSpinner();
+		num1_7.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		num1_7.setBounds(67, 93, 272, 29);
+		frame7.getContentPane().add(num1_7);
+		
+		JSpinner num2_7 = new JSpinner();
+		num2_7.setBounds(67, 53, 272, 29);
+		frame7.getContentPane().add(num2_7);
+		
+		JButton btn_7 = new JButton("Resultado");
+
+		
+		resultado7 = new JTextField();
+		resultado7.setText("00");
+		resultado7.setHorizontalAlignment(SwingConstants.CENTER);
+		resultado7.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		resultado7.setEditable(false);
+		resultado7.setColumns(10);
+		resultado7.setBorder(new CompoundBorder(new CompoundBorder(), null));
+		resultado7.setBounds(114, 177, 172, 29);
+		frame7.getContentPane().add(resultado7);
+		
+		JSpinner num3_7 = new JSpinner();
+		num3_7.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		num3_7.setBounds(67, 137, 272, 29);
+		frame7.getContentPane().add(num3_7);
+		
+		
+		
+		
+		btn_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int n1,n2,n3,res;
+				n1 = (int) num1_7.getValue();
+				n2 = (int) num2_7.getValue();
+				n3 = (int) num3_7.getValue();
+				
+				res = n1-n2-n3;
+				
+				resultado7.setText(Integer.toString(res));
+				
+				
+				
+				
+				
+				
+			}
+		});
+		btn_7.setBorder(new EmptyBorder(0, 0, 0, 0));
+		btn_7.setAlignmentX(0.5f);
+		btn_7.setBounds(148, 221, 102, 29);
+		frame7.getContentPane().add(btn_7);
+	}
+
+}

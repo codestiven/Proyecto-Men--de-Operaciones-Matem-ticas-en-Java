@@ -1,0 +1,77 @@
+package menu;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JSpinner;
+import javax.swing.JButton;
+import java.awt.Component;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.BevelBorder;
+
+public class DosNumero_S {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					DosNumero_S window = new DosNumero_S();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public DosNumero_S() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 468, 334);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel texto = new JLabel("Suma:Dos numeros");
+		texto.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		texto.setBounds(135, 11, 181, 49);
+		frame.getContentPane().add(texto);
+		
+		JSpinner spinner = new JSpinner();
+		spinner.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		spinner.setBounds(91, 71, 272, 29);
+		frame.getContentPane().add(spinner);
+		
+		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setBounds(91, 133, 272, 29);
+		frame.getContentPane().add(spinner_1);
+		
+		JLabel Resultado = new JLabel("00");
+		Resultado.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		Resultado.setBounds(203, 198, 36, 14);
+		frame.getContentPane().add(Resultado);
+		
+		JButton btn = new JButton("Resultado");
+		btn.setBorder(new EmptyBorder(0, 0, 0, 0));
+		btn.setAlignmentX(Component.CENTER_ALIGNMENT);
+		btn.setBounds(171, 243, 89, 23);
+		frame.getContentPane().add(btn);
+	}
+}

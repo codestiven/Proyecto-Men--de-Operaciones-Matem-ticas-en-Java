@@ -1,0 +1,89 @@
+package menu;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JSpinner;
+import javax.swing.border.BevelBorder;
+import javax.swing.JButton;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.border.CompoundBorder;
+import javax.swing.SwingConstants;
+
+public class TresNumero_S {
+
+	private JFrame frame;
+	private JTextField resultado2;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TresNumero_S window = new TresNumero_S();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public TresNumero_S() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblSumatresNumeros = new JLabel("Suma:Tres numeros");
+		lblSumatresNumeros.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblSumatresNumeros.setBounds(113, 11, 181, 49);
+		frame.getContentPane().add(lblSumatresNumeros);
+		
+		JSpinner num1 = new JSpinner();
+		num1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		num1.setBounds(67, 93, 272, 29);
+		frame.getContentPane().add(num1);
+		
+		JSpinner num2 = new JSpinner();
+		num2.setBounds(67, 53, 272, 29);
+		frame.getContentPane().add(num2);
+		
+		JButton btn = new JButton("Resultado");
+		btn.setBorder(new EmptyBorder(0, 0, 0, 0));
+		btn.setAlignmentX(0.5f);
+		btn.setBounds(148, 221, 102, 29);
+		frame.getContentPane().add(btn);
+		
+		resultado2 = new JTextField();
+		resultado2.setText("00");
+		resultado2.setHorizontalAlignment(SwingConstants.CENTER);
+		resultado2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		resultado2.setEditable(false);
+		resultado2.setColumns(10);
+		resultado2.setBorder(new CompoundBorder(new CompoundBorder(), null));
+		resultado2.setBounds(114, 177, 172, 29);
+		frame.getContentPane().add(resultado2);
+		
+		JSpinner num1_1 = new JSpinner();
+		num1_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		num1_1.setBounds(67, 137, 272, 29);
+		frame.getContentPane().add(num1_1);
+	}
+
+}
